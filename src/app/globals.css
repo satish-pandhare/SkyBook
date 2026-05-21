@@ -2,26 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ──────────────────────────────────────────────
+   Base Styles
+   ────────────────────────────────────────────── */
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0e1a;
+    --foreground: #e2e8f0;
+  }
+
+  body {
+    @apply bg-surface text-slate-200 antialiased;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-500;
+  }
+
+  /* Remove default focus ring, add custom */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-500/50 ring-offset-2 ring-offset-surface;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* ──────────────────────────────────────────────
+   Component Styles
+   ────────────────────────────────────────────── */
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-card-gradient backdrop-blur-xl border border-white/5 rounded-2xl shadow-card;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:shadow-card-hover hover:border-white/10 hover:-translate-y-0.5;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-400 to-accent-400 bg-clip-text text-transparent;
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    @apply animate-shimmer bg-gradient-to-r from-surface-800 via-surface-700 to-surface-800 bg-[length:200%_100%];
+  }
 }
 
+/* ──────────────────────────────────────────────
+   Utility Overrides
+   ────────────────────────────────────────────── */
+
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
