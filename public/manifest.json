@@ -1,0 +1,44 @@
+{
+  "name": "SkyBook — Flight Management",
+  "short_name": "SkyBook",
+  "description": "Book flights, select seats in real-time, and manage your bookings with SkyBook.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0a0e1a",
+  "background_color": "#0a0e1a",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/skybook-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "SkyBook flight booking dashboard"
+    },
+    {
+      "src": "/screenshots/skybook-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "label": "SkyBook mobile booking experience"
+    }
+  ],
+  "categories": ["travel", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}
